@@ -6,7 +6,16 @@ fun main() {
 
     val discount = calculateDiscount(price)
     val finalPrice = price - discount
+
+    // Pemanggilan wajib menggunakan Named Arguments
+    printReceipt(title = gameTitle, originalPrice = price, finalPrice = finalPrice)
 }
 
-// Fungsi menghitung diskon dengan Expression Body
 fun calculateDiscount(price: Int): Int = if (price > 500000) (price * 0.2).toInt() else (price * 0.1).toInt()
+
+fun printReceipt(title: String, originalPrice: Int, finalPrice: Int) {
+    println("--- Struk SteamKW ---")
+    println("Game: $title")
+    println("Harga Asli: Rp $originalPrice")
+    println("Harga Akhir: Rp $finalPrice")
+}
