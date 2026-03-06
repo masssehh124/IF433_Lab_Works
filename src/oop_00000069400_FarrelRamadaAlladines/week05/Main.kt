@@ -43,7 +43,7 @@ fun main() {
     for (payment in daftarPembayaran) {
         payment.processPayment(75000.0)
 
-        // Smart Casting Challenge
+        // Smart Casting Challenge 2
         if (payment is EWallet) {
             payment.topUp(50000.0)
             payment.processPayment(75000.0)   // sekarang harus berhasil
