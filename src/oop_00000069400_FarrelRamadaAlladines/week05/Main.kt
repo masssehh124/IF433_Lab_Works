@@ -26,4 +26,27 @@ fun main() {
         }
         println("--------------------------")
     }
+    // ==================== TUGAS MANDIRI 1 ====================
+    println("\n=== TUGAS MANDIRI 1: COMPILE-TIME POLYMORPHISM (OVERLOADING) ===")
+    val mathHelper = MathHelper()
+    println("Luas Persegi (sisi=5)       : ${mathHelper.hitungLuas(5)}")
+    println("Luas Persegi Panjang (4x6) : ${mathHelper.hitungLuas(4, 6)}")
+    println("Luas Lingkaran (r=7.0)     : ${mathHelper.hitungLuas(7.0)}")
+
+    // ==================== TUGAS MANDIRI 2 ====================
+    println("\n=== TUGAS MANDIRI 2: SISTEM PEMBAYARAN (POLYMORPHISM + SMART CASTING) ===")
+    val eWallet = EWallet("Farrel E-Wallet", 50000.0)
+    val creditCard = CreditCard("Farrel Credit Card", 100000.0)
+
+    val daftarPembayaran: List<PaymentMethod> = listOf(eWallet, creditCard)
+
+    for (payment in daftarPembayaran) {
+        payment.processPayment(75000.0)
+
+        // Smart Casting Challenge
+        if (payment is EWallet) {
+            payment.topUp(50000.0)
+            payment.processPayment(75000.0)   // sekarang harus berhasil
+        }
+    }
 }
