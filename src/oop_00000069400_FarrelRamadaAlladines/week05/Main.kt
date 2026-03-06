@@ -32,6 +32,7 @@ fun main() {
     println("Luas Persegi (sisi=5)       : ${mathHelper.hitungLuas(5)}")
     println("Luas Persegi Panjang (4x6) : ${mathHelper.hitungLuas(4, 6)}")
     println("Luas Lingkaran (r=7.0)     : ${mathHelper.hitungLuas(7.0)}")
+    // Test MathHelper.kt
 
     // ==================== TUGAS MANDIRI 2 ====================
     println("\n=== TUGAS MANDIRI 2: SISTEM PEMBAYARAN (POLYMORPHISM + SMART CASTING) ===")
