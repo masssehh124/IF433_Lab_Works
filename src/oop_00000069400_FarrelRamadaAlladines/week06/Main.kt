@@ -19,4 +19,22 @@ fun main() {
     println("\n=== TESTING CHECKOUT ===")
     processCheckout(method = pay1, amount = 50000.0)
     processCheckout(method = pay2, amount = 150000.0)
+
+    // --- TESTING TUGAS MANDIRI: SMART HOME ---
+    println("\n=== TESTING SMART HOME SYSTEM ===")
+
+    // 1. Instansiasi perangkat
+    val lampuTamu = SmartLamp("L01", "Ruang Tamu")
+    val nestDapur = SmartSpeaker("S01", "Google Nest Dapur")
+    val cctvGarasi = SmartCCTV("C01", "Ezviz Garasi")
+
+    // 2. Instansiasi Hub dan Tambahkan Perangkat
+    val hub = SmartHomeHub()
+    hub.addDevice(lampuTamu)
+    hub.addDevice(nestDapur)
+    hub.addDevice(cctvGarasi)
+
+    // 3. Jalankan Logika Sistem
+    hub.activateSecurityMode()
+    hub.turnOffAllSwitches()
 }
