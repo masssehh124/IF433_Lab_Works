@@ -33,4 +33,8 @@ fun main() {
     hub.addDevice(lampuTamu)
     hub.addDevice(nestDapur)
     hub.addDevice(cctvGarasi)
+
+    // 3. Jalankan Logika Sistem
+    hub.activateSecurityMode()
+    hub.turnOffAllSwitches()
 }
