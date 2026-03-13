@@ -28,4 +28,9 @@ fun main() {
     val nestDapur = SmartSpeaker("S01", "Google Nest Dapur")
     val cctvGarasi = SmartCCTV("C01", "Ezviz Garasi")
 
+    // 2. Instansiasi Hub dan Tambahkan Perangkat
+    val hub = SmartHomeHub()
+    hub.addDevice(lampuTamu)
+    hub.addDevice(nestDapur)
+    hub.addDevice(cctvGarasi)
 }
