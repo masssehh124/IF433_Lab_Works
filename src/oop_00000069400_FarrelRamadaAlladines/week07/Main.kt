@@ -49,4 +49,14 @@ fun main() {
     // Gunakan factory untuk membuat senjata awal
     val myWeapon = Weapon.forgeStarterSword()
     println("Senjata Awal: ${myWeapon.item.name} | Damage: ${myWeapon.item.damage} | Durability: ${myWeapon.durability}")
+
+    println("\n=== TASK: IMMUTABILITY & EVENT DISPATCH ===")
+    // Upgrade senjata menggunakan copy()
+    val upgradedItem = myWeapon.item.copy(damage = 25)
+
+    // Simulasi event berurutan
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDropped(upgradedItem))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
 }
