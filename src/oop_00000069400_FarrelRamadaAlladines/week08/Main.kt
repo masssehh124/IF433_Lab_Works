@@ -40,4 +40,11 @@ fun main() {
             println("Ditemukan teks: ${it.uppercase()}")
         }
     }
+
+    val someObject: Any = 100 // Tipe aslinya adalah Integer
+
+    // Coba cast ke String. Jika gagal (hasilnya null), ganti dengan "Unknown String"
+    val safeString = someObject as? String ?: "Unknown String"
+
+    println("Hasil cast fallback: $safeString")
 }
