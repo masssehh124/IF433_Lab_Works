@@ -48,5 +48,13 @@ fun main() {
 
     println("Hasil cast fallback: $safeString")
 
-    // Test output
+    println("\n=== TEST THE RED BUTTON (!!) ===")
+    val toxicData: String? = null
+
+    try {
+        // DANGEROUS: Memaksa compiler percaya data ini tidak null padahal isinya null
+        val length = toxicData!!.length
+    } catch (e: NullPointerException) {
+        println("CRASH (NPE)! Jangan gunakan !! secara sembarangan.")
+    }
 }
