@@ -21,5 +21,6 @@ fun main() {
         } catch (e: IllegalArgumentException) {
             println("ALERT: Data corrupted! ${e.message}") // Menangkap Ghost Item
         }
+        // Test run
     }
 }
