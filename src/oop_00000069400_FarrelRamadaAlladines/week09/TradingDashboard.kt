@@ -29,3 +29,7 @@ fun main() {
     worstPerformersString.forEach { println(it) }
     println("Unique Pairs: $uniquePairs")
 }
+
+// Tidak ada penambahan kode baru, langkah ini adalah verifikasi akhir terhadap:
+// 1. Status "OPEN" tidak tercetak di bagian WIN/LOSS.
+// 2. Format String sesuai permintaan Pipeline 4 & 5.
