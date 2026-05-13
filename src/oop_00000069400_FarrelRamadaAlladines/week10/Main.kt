@@ -8,7 +8,14 @@ fun main() {
     println("Isi stringBox: ${stringBox.value}")
 
     println("\n=== TEST MULTIPLE PARAMETERS ===")
-    // Menggunakan PairBox dengan tipe String untuk Key dan Int untuk Value
     val itemPrice = PairBox("Bitcoin", 65000)
     println("Aset: ${itemPrice.key}, Harga: ${itemPrice.value} USD")
+
+    println("\n=== TEST GENERIC FUNCTIONS ===")
+    // Menguji fungsi printData dengan tipe Double
+    printData(3.14)
+
+    // Menguji fungsi processData dengan tipe String
+    val result = processData("Stable Coin")
+    println("Hasil proses: $result")
 }
