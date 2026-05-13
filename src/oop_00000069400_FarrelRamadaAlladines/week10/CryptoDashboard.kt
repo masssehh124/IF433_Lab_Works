@@ -2,13 +2,13 @@ package oop_00000069400_FarrelRamadaAlladines.week10
 
 fun main() {
     val coinRepo = WalletRepository<Coin>()
-
     coinRepo.add(Coin("BTC", 0.5))
     coinRepo.add(Coin("ETH", 2.0))
     coinRepo.add(Coin("USDT", 1000.0))
 
     val response = ApiResponse("200 OK", coinRepo.getAll())
 
+    println("=== CRYPTO DASHBOARD ===")
     println("Status: ${response.status}")
 
     println("--- Coin List ---")
@@ -24,4 +24,6 @@ fun main() {
     txRepo.getAll().forEach { tx ->
         println("ID: ${tx.id}, Amount: ${tx.amount}")
     }
+
+    println("\nSystem exit, and keep your logic immutable!")
 }
