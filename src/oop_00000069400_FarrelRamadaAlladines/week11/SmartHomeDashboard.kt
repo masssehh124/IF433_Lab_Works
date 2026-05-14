@@ -39,4 +39,9 @@ fun main() {
         sumOf { it.powerLoad }
     }
     println("Total penggunaan daya: $totalPower Watt")
+
+    println("\n=== DAFTAR PERANGKAT LENGKAP ===")
+    homeDevices.forEach {
+        println(it.diagnose())
+    }
 }
