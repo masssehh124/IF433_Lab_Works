@@ -10,7 +10,6 @@ fun main() {
         homeDevices.add(it)
     }
 
-    // Konfigurasi Keamanan (also)
     SmartDevice("Ezviz Outdoor", "Camera").apply {
         isOnline = true
         powerLoad = 5
@@ -18,4 +17,11 @@ fun main() {
         println("(LOG) Kamera terhubung")
         homeDevices.add(it)
     }
+
+    val acUnit = run {
+        SmartDevice("Daikin Inverter (Kabel 3x2.5)", "HVAC", false, 800)
+    }
+    homeDevices.add(acUnit)
+
+    homeDevices.add(SmartDevice("Picolo's Auto Feeder", "Pet Care", true, 10))
 }
