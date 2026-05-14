@@ -25,9 +25,13 @@ fun main() {
 
     homeDevices.add(SmartDevice("Picolo's Auto Feeder", "Pet Care", true, 10))
 
-    // Pencarian Aman dengan let [cite: 153]
     val searchResult = homeDevices.find { it.category == "Camera" }
     searchResult?.let {
         println(it.diagnose())
+    }
+
+    with(homeDevices) {
+        println("=== SMART HOME DASHBOARD ===")
+        println("Jumlah perangkat terdaftar: ${this.size}")
     }
 }
