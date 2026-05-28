@@ -15,14 +15,24 @@ data class TradeRecord(
 // Serialization (Extension Function) mengubah objek menjadi format string dipisahkan koma
 fun TradeRecord.toCsv(): String = "$id,$symbol,$type,$margin,$pnl"
 
-// Deserialization Parsing dengan return type nullable
+// Deserialization Parsing dengan proteksi try-catch untuk menangani data korup
 fun fromCsvTrade(line: String): TradeRecord? {
-    val parts = line.split(",")
-    return TradeRecord(
-        id = parts[0].trim().toInt(),
-        symbol = parts[1].trim(),
-        type = parts[2].trim(),
-        margin = parts[3].trim().toDouble(),
-        pnl = parts[4].trim().toDouble()
-    )
+    return try {
+        val parts = line.split(",")
+        TradeRecord(
+            id = parts[0].trim().toInt(),
+            symbol = parts[1].trim(),
+            type = parts[2].trim(),
+            margin = parts[3].trim().toDouble(),
+            pnl = parts[4].trim().toDouble()
+        )
+    } catch (e: Exception) {
+        when (e) {
+            is NumberFormatException, is IndexOutOfBoundsException -> {
+                println("(Log) Data korup diabaikan: $line")
+                null
+            }
+            else -> throw e
+        }
+    }
 }
