@@ -76,4 +76,20 @@ fun main() {
 
     // Hitung jumlah PnL bersih menggunakan higher-order function sumOf
     val totalPnl = loadedData.sumOf { it.pnl }
+
+    // Final Dashboard Output
+    println("\n=== ALGORITHMIC CRYPTO TRADING DASHBOARD ===")
+    println("Total Transaksi Berhasil Dimuat: ${loadedData.size}")
+    println("--------------------------------------------")
+    loadedData.forEach { trade ->
+        println("ID: #${trade.id} | Asset: ${trade.symbol} | Type: ${trade.type} | Margin: $${trade.margin} | PnL: $${trade.pnl}")
+    }
+    println("--------------------------------------------")
+    println("Net Performance PnL: $$totalPnl")
+
+    if (totalPnl >= 0) {
+        println("Status Akhir: PROFIT / BULLISH")
+    } else {
+        println("Status Akhir: LOSS / BEARISH")
+    }
 }
