@@ -45,3 +45,13 @@ fun saveTrades(trades: List<TradeRecord>, path: String) {
         }
     }
 }
+
+// Load System dengan penanganan FileNotFoundException dan mengabaikan baris bernilai null
+fun loadTrades(path: String): List<TradeRecord> {
+    return try {
+        File(path).readLines().mapNotNull { fromCsvTrade(it) }
+    } catch (e: FileNotFoundException) {
+        println("Error: File histori transaksi tidak ditemukan!")
+        emptyList()
+    }
+}
