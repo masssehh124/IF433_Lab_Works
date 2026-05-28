@@ -70,4 +70,10 @@ fun main() {
 
     // Injecting Malformed Data untuk menguji keandalan sistem penanganan error
     File("crypto_trades.csv").appendText("CORRUPT_ID, DOGEUSDT, Hold, XX, YY\n")
+
+    // Aggregation & Calculation - Tarik histori transaksi
+    val loadedData = loadTrades("crypto_trades.csv")
+
+    // Hitung jumlah PnL bersih menggunakan higher-order function sumOf
+    val totalPnl = loadedData.sumOf { it.pnl }
 }
