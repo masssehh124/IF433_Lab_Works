@@ -14,3 +14,15 @@ data class TradeRecord(
 
 // Serialization (Extension Function) mengubah objek menjadi format string dipisahkan koma
 fun TradeRecord.toCsv(): String = "$id,$symbol,$type,$margin,$pnl"
+
+// Deserialization Parsing dengan return type nullable
+fun fromCsvTrade(line: String): TradeRecord? {
+    val parts = line.split(",")
+    return TradeRecord(
+        id = parts[0].trim().toInt(),
+        symbol = parts[1].trim(),
+        type = parts[2].trim(),
+        margin = parts[3].trim().toDouble(),
+        pnl = parts[4].trim().toDouble()
+    )
+}
