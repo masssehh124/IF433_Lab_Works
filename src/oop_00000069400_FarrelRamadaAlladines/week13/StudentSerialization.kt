@@ -18,3 +18,18 @@ fun fromCsv(line: String): Student {
         gpa = parts[2].trim().toDouble()
     )
 }
+
+// Fungsi untuk mengatur aliran File I/O kolektif (Save)
+fun saveStudents(students: List<Student>, path: String) {
+    File(path).writeText(students.joinToString(separator = "\n") { it.toCsv() })
+}
+
+// Fungsi untuk mengatur aliran File I/O kolektif dengan menangani FileNotFoundException (Load)
+fun loadStudents(path: String): List<Student> {
+    return try {
+        File(path).readLines().map { fromCsv(line = it) }
+    } catch (e: FileNotFoundException) {
+        println("Error: File tidak ditemukan!")
+        emptyList()
+    }
+}
