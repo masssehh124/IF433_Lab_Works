@@ -11,3 +11,6 @@ data class TradeRecord(
     val margin: Double,
     val pnl: Double
 )
+
+// Serialization (Extension Function) mengubah objek menjadi format string dipisahkan koma
+fun TradeRecord.toCsv(): String = "$id,$symbol,$type,$margin,$pnl"
