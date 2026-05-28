@@ -67,4 +67,7 @@ fun main() {
 
     // Panggil saveTrades ke tujuan file
     saveTrades(trades, path = "crypto_trades.csv")
+
+    // Injecting Malformed Data untuk menguji keandalan sistem penanganan error
+    File("crypto_trades.csv").appendText("CORRUPT_ID, DOGEUSDT, Hold, XX, YY\n")
 }
